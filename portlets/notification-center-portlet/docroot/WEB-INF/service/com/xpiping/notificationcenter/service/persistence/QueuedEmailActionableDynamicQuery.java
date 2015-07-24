@@ -1,0 +1,37 @@
+/**
+ * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.xpiping.notificationcenter.service.persistence;
+
+import com.liferay.portal.kernel.dao.orm.BaseActionableDynamicQuery;
+import com.liferay.portal.kernel.exception.SystemException;
+
+import com.xpiping.notificationcenter.model.QueuedEmail;
+import com.xpiping.notificationcenter.service.QueuedEmailLocalServiceUtil;
+
+/**
+ * @author marcoleo
+ * @generated
+ */
+public abstract class QueuedEmailActionableDynamicQuery
+	extends BaseActionableDynamicQuery {
+	public QueuedEmailActionableDynamicQuery() throws SystemException {
+		setBaseLocalService(QueuedEmailLocalServiceUtil.getService());
+		setClass(QueuedEmail.class);
+
+		setClassLoader(com.xpiping.notificationcenter.service.ClpSerializer.class.getClassLoader());
+
+		setPrimaryKeyPropertyName("queuedEmailId");
+	}
+}

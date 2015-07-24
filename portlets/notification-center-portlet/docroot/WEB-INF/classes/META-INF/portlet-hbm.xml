@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.xpiping.notificationcenter.model.Notifica" />
+	<import class="com.xpiping.notificationcenter.model.NotificaMessage" />
+	<import class="com.xpiping.notificationcenter.model.NotificaType" />
+	<import class="com.xpiping.notificationcenter.model.QueuedEmail" />
+	<class name="com.xpiping.notificationcenter.model.impl.NotificaImpl" table="xpiping_notificationcenter_Notifica">
+		<cache usage="read-write" />
+		<id name="notificaId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="notificaTypeId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="text" type="com.liferay.portal.dao.orm.hibernate.StringType" column="text_" />
+		<property name="subject" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="aviable" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="ignoreIntersaction" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="orgsIds" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="groupsIds" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="rolesIds" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="lastCheckDate" type="org.hibernate.type.TimestampType" />
+		<property name="deleted" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="com.xpiping.notificationcenter.model.impl.NotificaMessageImpl" table="xpiping_notificationcenter_NotificaMessage">
+		<cache usage="read-write" />
+		<id name="notificaMessageId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="notificaId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="entityId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="entityName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="queuedEmailId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.xpiping.notificationcenter.model.impl.NotificaTypeImpl" table="xpiping_notificationcenter_NotificaType">
+		<cache usage="read-write" />
+		<id name="notificaTypeId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="messageDestination" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="placeHolders" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="aviable" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="com.xpiping.notificationcenter.model.impl.QueuedEmailImpl" table="xpiping_notificationcenter_QueuedEmail">
+		<cache usage="read-write" />
+		<id name="queuedEmailId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="from" type="com.liferay.portal.dao.orm.hibernate.StringType" column="from_" />
+		<property name="fromName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="to" type="com.liferay.portal.dao.orm.hibernate.StringType" column="to_" />
+		<property name="toName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cc" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="bcc" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="subject" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="body" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="attachmentFileName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="attachmentFileEntryId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="sentTries" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="sentOn" type="org.hibernate.type.TimestampType" />
+	</class>
+</hibernate-mapping>

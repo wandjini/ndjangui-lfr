@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.xpiping.notificationcenter">
+	<author>marcoleo</author>
+	<namespace>xpiping_notificationcenter</namespace>
+
+	<entity name="QueuedEmail" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="queuedEmailId" type="long" primary="true" />
+		
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Other fields -->
+
+		<column name="from" type="String" />
+		<column name="fromName" type="String" />
+		<column name="to" type="String" />
+		<column name="toName" type="String" />
+		<column name="cc" type="String" />
+		<column name="bcc" type="String" />
+		<column name="subject" type="String" />
+		<column name="body" type="String" />
+		<column name="attachmentFileName" type="String" />
+		<column name="attachmentFileEntryId" type="long" />
+		<column name="sentTries" type="long" />
+		<column name="sentOn" type="Date" />
+     
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+
+		<!-- Finder methods -->
+		
+		<finder return-type="Collection" name="SentDate">
+			<finder-column name="sentOn" ></finder-column>
+		</finder>
+		<finder return-type="Collection" name="CompanyId">
+			<finder-column name="companyId" ></finder-column>
+		</finder>
+	</entity>
+	<entity name="NotificaType" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="notificaTypeId" type="long" primary="true" />
+		
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Other fields -->
+
+		<column name="name" type="String" />
+		<column name="messageDestination" type="String" />
+		<column name="description" type="String" />
+		<column name="placeHolders" type="String" />
+		<column name="aviable" type="Boolean" />
+		
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="name" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="CompanyId" return-type="Collection">
+			<finder-column name="companyId"></finder-column>
+		</finder>
+		<finder name="Name" return-type="NotificaType" unique="true">
+			<finder-column name="name"></finder-column>
+		</finder>
+		
+	</entity>
+	<entity name="Notifica" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="notificaId" type="long" primary="true" />
+		
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Other fields -->
+		<column name="notificaTypeId" type="long" />
+		<column name="name" type="String" />
+		<column name="text" type="String" />
+		<column name="subject" type="String" />
+		<column name="description" type="String" />
+		<column name="aviable" type="Boolean" />
+		<column name="ignoreIntersaction" type="Boolean" />
+		<column name="orgsIds" type="String" />
+		<column name="groupsIds" type="String" />
+		<column name="rolesIds" type="String" />
+		
+		<column name="lastCheckDate" type="Date" />
+		
+		
+		<column name="deleted" type="Boolean" />
+		
+		
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="CompanyId" return-type="Collection"  where="deleted=FALSE">
+			<finder-column name="companyId"></finder-column>
+		</finder>
+		<finder name="NotificaTypeId" return-type="Collection"   where="deleted=FALSE">
+			<finder-column name="notificaTypeId"></finder-column>
+		</finder>
+		
+	</entity>
+	<entity name="NotificaMessage" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="notificaMessageId" type="long" primary="true" />
+		
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Other fields -->
+		<column name="notificaId" type="long" />
+		<column name="userId" type="long" />
+		
+		<column name="entityId" type="long" />
+		<column name="entityName" type="String" />
+		
+		<column name="queuedEmailId" type="long" />
+		
+		<!-- per futuri scenari, tipo decidere se email sms privatemessage -->
+		<!-- <column name="providerType" type="long" /> -->
+		
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="NotificaId" return-type="Collection">
+			<finder-column name="notificaId"></finder-column>
+		</finder>
+		<finder name="N_E_E" return-type="Collection">
+			<finder-column name="notificaId"></finder-column>
+			<finder-column name="entityName"></finder-column>
+			<finder-column name="entityId"></finder-column>
+		</finder>
+	</entity>
+</service-builder>
