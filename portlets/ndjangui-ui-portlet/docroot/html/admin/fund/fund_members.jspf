@@ -1,0 +1,44 @@
+<liferay-ui:search-container delta="10"  iteratorURL="<%=portletURL %>" >
+
+
+	<liferay-ui:search-container-results 
+		results="<%=FundServiceUtil.getMembersFund(scopeGroupId, fundId, searchContainer.getStart(), searchContainer.getEnd())%>"
+		
+		total="<%=FundLocalServiceUtil.countMembersFund(scopeGroupId,fundId) %>"
+	/>
+
+	<liferay-ui:search-container-row className="cmr.fandenatech.ndjangui.model.MemberFund" modelVar="memberFund">
+
+			<liferay-ui:search-container-column-text property="memberName" />
+			<liferay-ui:search-container-column-text property="fundName" />
+			<liferay-ui:search-container-column-text name="actions">
+				<portlet:actionURL name="editFund" var="removeFundMemberURL">
+					<portlet:param name="<%=Constants.CMD %>"
+						value="<%=ActionKeys.REMOVE_FUND_MEMBER %>" />
+					<portlet:param name="memberFundId"
+						value="<%=String.valueOf(memberFund.getMemberFundId()) %>" />
+					<portlet:param name="fundId" value="<%=String.valueOf(fundId) %>" />
+					<portlet:param name="redirect" value="<%=createNewFundURL %>" />
+				</portlet:actionURL>
+
+				<a onclick="javascript:<portlet:namespace/>deleteFundMember('<%=removeFundMemberURL %>')"><liferay-ui:message key="remove"/></a>
+				
+			</liferay-ui:search-container-column-text>
+
+
+	</liferay-ui:search-container-row>
+	<script>
+	
+		function <portlet:namespace/>deleteFundMember(url){
+			
+			if(confirm(Liferay.Language.get('are-you-sure'))){
+				
+				window.location.href=url;
+			}
+		}
+	</script>
+	
+	
+
+	<liferay-ui:search-iterator />
+</liferay-ui:search-container>

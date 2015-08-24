@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="cmr.fandenatech.ndjangui">
+	<author>guyw</author>
+	<namespace>ndjangui</namespace>
+
+	<entity name="Member" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="memberId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->	
+		
+		<column name="name" type="String"></column>
+		<column name="surname" type="String"></column>
+		<column name="fullname" type="String"></column>
+		<column name="email" type="String"></column>
+		<column name="cardNumber" type="String"></column>
+		<column name="phoneNumber" type="String"></column>
+		<column name="rate" type="double"></column>
+		<column name="status" type="int"></column>
+		<finder return-type="Collection" name="GroupId">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		<finder return-type="Member" name="GroupId_Email" unique="true">
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="email"></finder-column>
+		</finder>
+		<finder return-type="Member" name="GroupId_CardNumber" unique="true">
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="cardNumber"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="GroupId_Status" >
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+
+		
+	</entity>
+	
+	<entity name="BudgetPeriod" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="budgetPeriodId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<!-- Other fields -->	
+		
+		<column name="name" type="String"></column>
+		<column name="shortDescription" type="String"/>
+		<column name="startDate" type="Date"></column>
+		<column name="endDate" type="Date"></column>
+		<column name="status" type="int"></column>
+		
+		<finder return-type="Collection" name="GroupId">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="GroupId_Status" >
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+	</entity>
+	<entity name="Sitting" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="sittingId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="startDate" type="Date" />
+		<column name="startHour" type="int" />
+		<column name="startMin" type="int" />
+		<column name="endDate" type="Date" />
+		<column name="endHour" type="int" />
+		<column name="endMin" type="int" />
+		<!-- Other fields -->	
+		<column name="budgetPeriodId" type="long"></column>
+		<column name="name" type="String"></column>
+		<column name="dayPlan" type="String"></column>
+		<column name="notes" type="String"></column>
+		<column name="status" type="int"></column>
+		
+		<finder return-type="Collection" name="GroupId">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="GroupId_Status" >
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+	</entity>
+	<entity name="Fund" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="fundId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="budgetPeriodId" type="long"/>
+		
+		<!-- Other fields -->	
+		
+		<column name="name" type="String"/>
+		<column name="shortDescription" type="String"/>
+		<column name="fundTypeId" type="long"/>
+		<column name="fundType" type="String"/>
+		<column name="status" type="int"/>
+		
+		<finder return-type="Collection" name="GroupId">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="GroupId_Status" >
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="GroupId_BudgetPeriodId" >
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="budgetPeriodId"></finder-column>
+		</finder>
+
+	</entity>
+	<entity name="FundType" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="fundTypeId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Other fields -->	
+		
+		<column name="name" type="String"></column>
+		<column name="shortDescription" type="String"></column>
+		<column name="status" type="int"></column>
+		
+		<finder return-type="Collection" name="GroupId">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="GroupId_Status" >
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+		<finder return-type="FundType" name="GroupId_Name"  unique="true">
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="name"></finder-column>
+		</finder>
+		
+
+	</entity>
+	<entity name="Address" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="addressId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Other fields -->	
+		
+		<column name="street" type="String"/>
+		<column name="city" type="String"/>
+		<column name="country" type="String"/>
+		<column name="town" type="String"/>
+		<column name="note" type="String"/>
+		<finder return-type="Collection" name="GroupId">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		
+
+	</entity>
+	<entity name="OperationType" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="operationTypeId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Other fields -->	
+		
+		<column name="name" type="String"></column>
+		<column name="shortDescription" type="String"></column>
+		<column name="status" type="int"></column>
+		<finder return-type="Collection" name="GroupId">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="GroupId_Status" >
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+		<finder return-type="FundType" name="GroupId_Name"  unique="true">
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="name"></finder-column>
+		</finder>
+	</entity>
+	<entity name="SanctionType" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="sanctionTypeId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Other fields -->	
+		
+		<column name="name" type="String"></column>
+		<column name="shortDescription" type="String"></column>
+		<column name="amount" type="double"></column>
+		<column name="status" type="int"></column>
+		<finder return-type="Collection" name="GroupId">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="GroupId_Status" >
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+		<finder return-type="FundType" name="GroupId_Name"  unique="true">
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="name"></finder-column>
+		</finder>
+	</entity>
+	<entity name="Sanction" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="sanctionId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="memberId" type="long" />
+		<!-- Other fields -->	
+		
+		<column name="budgetPeriodId" type="long"/>
+		<column name="name" type="String"/>
+		<column name="shortDescription" type="String"/>
+		<column name="sanctionTypeId" type="long"  />
+		<column name="sittingId" type="long"  />
+		<column name="amount" type="double"/>
+		<column name="status" type="int"/>
+		<column name="srcFundClassPK" type="long"/>
+		<column name="srcFundClassName" type="String"/>
+		<column name="destFundClassPK" type="long"/>
+		<column name="destFundClassName" type="String"/>
+		<finder return-type="Collection" name="GroupId">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="GroupId_Status" >
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+	</entity>	
+
+	<entity name="Operation" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="operationId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Other fields -->	
+		<column name="budgetPeriodId" type="long"/>
+		<column name="name" type="String"/>
+		<column name="shortDescription" type="String"/>
+		<column name="operationTypeId" type="long"  />
+		<column name="sittingId" type="long"  />
+		<column name="status" type="int"/>
+		<column name="amount" type="double"/>
+		<column name="srcFundClassPK" type="long"/>
+		<column name="srcFundClassName" type="String"/>
+		<column name="destFundClassPK" type="long"/>
+		<column name="destFundClassName" type="String"/>
+		
+		<finder return-type="Collection" name="GroupId">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="GroupId_Status" >
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+
+	</entity>
+
+	<entity name="Operation_Fund" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="operationFundId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="operationId" type="long"/>
+		<!-- Other fields -->	
+		<column name="srcFundClassPK" type="long"/>
+		<column name="srcFundClassName" type="String"/>
+		<column name="destFundClassPK" type="long"/>
+		<column name="destFundClassName" type="String"/>
+
+	</entity>
+	<entity name="MemberFund" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="memberFundId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<!-- Other fields -->	
+		
+		<column name="memberId" type="long"></column>
+		<column name="fundId" type="long"></column>
+		<column name="memberName" type="String"></column>
+		<column name="fundName" type="String"></column>
+		
+		
+
+	</entity>
+
+	<entity name="MemberSitting" local-service="true" remote-service="true">
+	
+		<!-- PK fields -->
+		<column name="memberSittingId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="userName" type="String" />
+		
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<!-- Other fields -->	
+		
+		<column name="memberId" type="long"></column>
+		<column name="sittingId" type="long"></column>
+		<column name="memberName" type="String"></column>
+		<column name="sittingName" type="String"></column>
+		
+		<finder return-type="Collection" name="GroupId">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="GroupId_SittingId">
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="sittingId"></finder-column>
+		</finder>
+
+	</entity>	
+    <exceptions>
+        <exception>DuplicateCardNumberException</exception>
+    </exceptions>
+</service-builder>

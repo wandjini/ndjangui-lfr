@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_ndjangui_MemberFundService" provider="java:RPC" style="rpc" use="encoded">
+		<typeMapping xmlns:ns="http://model.ndjangui.fandenatech.cmr" qname="ns:MemberFundSoap" type="java:cmr.fandenatech.ndjangui.model.MemberFundSoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.ndjangui.fandenatech.cmr" xmlns:rtns="http://model.ndjangui.fandenatech.cmr" name="addMemberFund" qname="operNS:addMemberFund" returnQName="addMemberFundReturn" returnType="rtns:MemberFundSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="groupId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="memberId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="fundId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.ndjangui.fandenatech.cmr" xmlns:rtns="http://model.ndjangui.fandenatech.cmr" name="removeMemberFund" qname="operNS:removeMemberFund" returnQName="removeMemberFundReturn" returnType="rtns:MemberFundSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="memberFundId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="fundId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.ndjangui.fandenatech.cmr" xmlns:rtns="http://model.ndjangui.fandenatech.cmr" name="updateMemberFund" qname="operNS:updateMemberFund" returnQName="updateMemberFundReturn" returnType="rtns:MemberFundSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="memberFundId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="memberId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="fundId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="addMemberFund removeMemberFund updateMemberFund" />
+		<parameter name="className" value="cmr.fandenatech.ndjangui.service.http.MemberFundServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.ndjangui.fandenatech.cmr" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="MemberFundServiceSoap" />
+		<parameter name="wsdlServiceElement" value="MemberFundServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_ndjangui_MemberFundService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.ndjangui.fandenatech.cmr" />
+	</service>
+</deployment>

@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.AddressModelImpl">
+		<attributes>
+			<id name="addressId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="street" />
+			<basic name="city" />
+			<basic name="country" />
+			<basic name="town" />
+			<basic name="note" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.BudgetPeriodModelImpl">
+		<attributes>
+			<id name="budgetPeriodId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="name" />
+			<basic name="shortDescription" />
+			<basic name="startDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="endDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.FundModelImpl">
+		<attributes>
+			<id name="fundId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="budgetPeriodId" />
+			<basic name="name" />
+			<basic name="shortDescription" />
+			<basic name="fundTypeId" />
+			<basic name="fundType" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.FundTypeModelImpl">
+		<attributes>
+			<id name="fundTypeId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="name" />
+			<basic name="shortDescription" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.MemberModelImpl">
+		<attributes>
+			<id name="memberId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="name" />
+			<basic name="surname" />
+			<basic name="fullname" />
+			<basic name="email" />
+			<basic name="cardNumber" />
+			<basic name="phoneNumber" />
+			<basic name="rate" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.MemberFundModelImpl">
+		<attributes>
+			<id name="memberFundId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="memberId" />
+			<basic name="fundId" />
+			<basic name="memberName" />
+			<basic name="fundName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.MemberSittingModelImpl">
+		<attributes>
+			<id name="memberSittingId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="memberId" />
+			<basic name="sittingId" />
+			<basic name="memberName" />
+			<basic name="sittingName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.OperationModelImpl">
+		<attributes>
+			<id name="operationId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="budgetPeriodId" />
+			<basic name="name" />
+			<basic name="shortDescription" />
+			<basic name="operationTypeId" />
+			<basic name="sittingId" />
+			<basic name="status" />
+			<basic name="amount" />
+			<basic name="srcFundClassPK" />
+			<basic name="srcFundClassName" />
+			<basic name="destFundClassPK" />
+			<basic name="destFundClassName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.Operation_FundModelImpl">
+		<attributes>
+			<id name="operationFundId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="operationId" />
+			<basic name="srcFundClassPK" />
+			<basic name="srcFundClassName" />
+			<basic name="destFundClassPK" />
+			<basic name="destFundClassName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.OperationTypeModelImpl">
+		<attributes>
+			<id name="operationTypeId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="name" />
+			<basic name="shortDescription" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.SanctionModelImpl">
+		<attributes>
+			<id name="sanctionId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="memberId" />
+			<basic name="budgetPeriodId" />
+			<basic name="name" />
+			<basic name="shortDescription" />
+			<basic name="sanctionTypeId" />
+			<basic name="sittingId" />
+			<basic name="amount" />
+			<basic name="status" />
+			<basic name="srcFundClassPK" />
+			<basic name="srcFundClassName" />
+			<basic name="destFundClassPK" />
+			<basic name="destFundClassName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.SanctionTypeModelImpl">
+		<attributes>
+			<id name="sanctionTypeId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="name" />
+			<basic name="shortDescription" />
+			<basic name="amount" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="cmr.fandenatech.ndjangui.model.impl.SittingModelImpl">
+		<attributes>
+			<id name="sittingId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="startDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="startHour" />
+			<basic name="startMin" />
+			<basic name="endDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="endHour" />
+			<basic name="endMin" />
+			<basic name="budgetPeriodId" />
+			<basic name="name" />
+			<basic name="dayPlan" />
+			<basic name="notes" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.AddressImpl" name="Address">
+		<table name="ndjangui_Address" />
+		<attributes />
+	</entity>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.BudgetPeriodImpl" name="BudgetPeriod">
+		<table name="ndjangui_BudgetPeriod" />
+		<attributes />
+	</entity>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.FundImpl" name="Fund">
+		<table name="ndjangui_Fund" />
+		<attributes />
+	</entity>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.FundTypeImpl" name="FundType">
+		<table name="ndjangui_FundType" />
+		<attributes />
+	</entity>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.MemberImpl" name="Member">
+		<table name="ndjangui_Member" />
+		<attributes />
+	</entity>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.MemberFundImpl" name="MemberFund">
+		<table name="ndjangui_MemberFund" />
+		<attributes />
+	</entity>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.MemberSittingImpl" name="MemberSitting">
+		<table name="ndjangui_MemberSitting" />
+		<attributes />
+	</entity>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.OperationImpl" name="Operation">
+		<table name="ndjangui_Operation" />
+		<attributes />
+	</entity>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.Operation_FundImpl" name="Operation_Fund">
+		<table name="ndjangui_Operation_Fund" />
+		<attributes />
+	</entity>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.OperationTypeImpl" name="OperationType">
+		<table name="ndjangui_OperationType" />
+		<attributes />
+	</entity>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.SanctionImpl" name="Sanction">
+		<table name="ndjangui_Sanction" />
+		<attributes />
+	</entity>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.SanctionTypeImpl" name="SanctionType">
+		<table name="ndjangui_SanctionType" />
+		<attributes />
+	</entity>
+	<entity class="cmr.fandenatech.ndjangui.model.impl.SittingImpl" name="Sitting">
+		<table name="ndjangui_Sitting" />
+		<attributes />
+	</entity>
+</entity-mappings>

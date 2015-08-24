@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="cmr.fandenatech.ndjangui.service.AddressLocalService" class="cmr.fandenatech.ndjangui.service.impl.AddressLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.AddressService" class="cmr.fandenatech.ndjangui.service.impl.AddressServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.AddressPersistence" class="cmr.fandenatech.ndjangui.service.persistence.AddressPersistenceImpl" parent="basePersistence" />
+	<bean id="cmr.fandenatech.ndjangui.service.BudgetPeriodLocalService" class="cmr.fandenatech.ndjangui.service.impl.BudgetPeriodLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.BudgetPeriodService" class="cmr.fandenatech.ndjangui.service.impl.BudgetPeriodServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.BudgetPeriodPersistence" class="cmr.fandenatech.ndjangui.service.persistence.BudgetPeriodPersistenceImpl" parent="basePersistence" />
+	<bean id="cmr.fandenatech.ndjangui.service.FundLocalService" class="cmr.fandenatech.ndjangui.service.impl.FundLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.FundService" class="cmr.fandenatech.ndjangui.service.impl.FundServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.FundPersistence" class="cmr.fandenatech.ndjangui.service.persistence.FundPersistenceImpl" parent="basePersistence" />
+	<bean id="cmr.fandenatech.ndjangui.service.FundTypeLocalService" class="cmr.fandenatech.ndjangui.service.impl.FundTypeLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.FundTypeService" class="cmr.fandenatech.ndjangui.service.impl.FundTypeServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.FundTypePersistence" class="cmr.fandenatech.ndjangui.service.persistence.FundTypePersistenceImpl" parent="basePersistence" />
+	<bean id="cmr.fandenatech.ndjangui.service.MemberLocalService" class="cmr.fandenatech.ndjangui.service.impl.MemberLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.MemberService" class="cmr.fandenatech.ndjangui.service.impl.MemberServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.MemberPersistence" class="cmr.fandenatech.ndjangui.service.persistence.MemberPersistenceImpl" parent="basePersistence" />
+	<bean id="cmr.fandenatech.ndjangui.service.MemberFundLocalService" class="cmr.fandenatech.ndjangui.service.impl.MemberFundLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.MemberFundService" class="cmr.fandenatech.ndjangui.service.impl.MemberFundServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.MemberFundPersistence" class="cmr.fandenatech.ndjangui.service.persistence.MemberFundPersistenceImpl" parent="basePersistence" />
+	<bean id="cmr.fandenatech.ndjangui.service.MemberSittingLocalService" class="cmr.fandenatech.ndjangui.service.impl.MemberSittingLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.MemberSittingService" class="cmr.fandenatech.ndjangui.service.impl.MemberSittingServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.MemberSittingPersistence" class="cmr.fandenatech.ndjangui.service.persistence.MemberSittingPersistenceImpl" parent="basePersistence" />
+	<bean id="cmr.fandenatech.ndjangui.service.OperationLocalService" class="cmr.fandenatech.ndjangui.service.impl.OperationLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.OperationService" class="cmr.fandenatech.ndjangui.service.impl.OperationServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.OperationPersistence" class="cmr.fandenatech.ndjangui.service.persistence.OperationPersistenceImpl" parent="basePersistence" />
+	<bean id="cmr.fandenatech.ndjangui.service.Operation_FundLocalService" class="cmr.fandenatech.ndjangui.service.impl.Operation_FundLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.Operation_FundService" class="cmr.fandenatech.ndjangui.service.impl.Operation_FundServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.Operation_FundPersistence" class="cmr.fandenatech.ndjangui.service.persistence.Operation_FundPersistenceImpl" parent="basePersistence" />
+	<bean id="cmr.fandenatech.ndjangui.service.OperationTypeLocalService" class="cmr.fandenatech.ndjangui.service.impl.OperationTypeLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.OperationTypeService" class="cmr.fandenatech.ndjangui.service.impl.OperationTypeServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.OperationTypePersistence" class="cmr.fandenatech.ndjangui.service.persistence.OperationTypePersistenceImpl" parent="basePersistence" />
+	<bean id="cmr.fandenatech.ndjangui.service.SanctionLocalService" class="cmr.fandenatech.ndjangui.service.impl.SanctionLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.SanctionService" class="cmr.fandenatech.ndjangui.service.impl.SanctionServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.SanctionPersistence" class="cmr.fandenatech.ndjangui.service.persistence.SanctionPersistenceImpl" parent="basePersistence" />
+	<bean id="cmr.fandenatech.ndjangui.service.SanctionTypeLocalService" class="cmr.fandenatech.ndjangui.service.impl.SanctionTypeLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.SanctionTypeService" class="cmr.fandenatech.ndjangui.service.impl.SanctionTypeServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.SanctionTypePersistence" class="cmr.fandenatech.ndjangui.service.persistence.SanctionTypePersistenceImpl" parent="basePersistence" />
+	<bean id="cmr.fandenatech.ndjangui.service.SittingLocalService" class="cmr.fandenatech.ndjangui.service.impl.SittingLocalServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.SittingService" class="cmr.fandenatech.ndjangui.service.impl.SittingServiceImpl" />
+	<bean id="cmr.fandenatech.ndjangui.service.persistence.SittingPersistence" class="cmr.fandenatech.ndjangui.service.persistence.SittingPersistenceImpl" parent="basePersistence" />
+</beans>

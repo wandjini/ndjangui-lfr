@@ -1,0 +1,10 @@
+	<aui:fieldset>
+		<aui:column columnWidth="50">
+			<aui:input name="name" label="name">
+				<aui:validator name="required"/>
+			</aui:input>
+			<aui:input type="textarea" name="shortDescription">
+				<aui:validator name="required"/>
+			</aui:input>
+		</aui:column>
+	</aui:fieldset>

@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.2.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_2_0.dtd">
+
+<liferay-portlet-app>
+	<portlet>
+		<portlet-name>1</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>
+			/html/members/css/main.css
+		</header-portlet-css>
+		<footer-portlet-javascript>
+			/html/members/js/main.js
+		</footer-portlet-javascript>
+		<css-class-wrapper>1-portlet</css-class-wrapper>
+	</portlet>
+	<portlet>
+		<portlet-name>2</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>
+			/html/admin/css/main.css
+		</header-portlet-css>
+		<footer-portlet-javascript>
+			/html/admin/js/main.js
+		</footer-portlet-javascript>
+		<css-class-wrapper>2-portlet</css-class-wrapper>
+	</portlet>
+	<portlet>
+		<portlet-name>3</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>
+			/html/sitting/css/main.css
+		</header-portlet-css>
+		<footer-portlet-javascript>
+			/html/sitting/js/main.js
+		</footer-portlet-javascript>
+		<css-class-wrapper>3-portlet</css-class-wrapper>
+	</portlet>
+	<portlet>
+		<portlet-name>4</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>
+			/html/currentsitting/css/main.css
+		</header-portlet-css>
+		<footer-portlet-javascript>
+			/html/currentsitting/js/main.js
+		</footer-portlet-javascript>
+		<css-class-wrapper>4-portlet</css-class-wrapper>
+	</portlet>
+	<role-mapper>
+		<role-name>administrator</role-name>
+		<role-link>Administrator</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>guest</role-name>
+		<role-link>Guest</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>power-user</role-name>
+		<role-link>Power User</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>user</role-name>
+		<role-link>User</role-link>
+	</role-mapper>
+</liferay-portlet-app>

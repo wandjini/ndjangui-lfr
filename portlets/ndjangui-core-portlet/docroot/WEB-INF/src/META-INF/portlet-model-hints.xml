@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="cmr.fandenatech.ndjangui.model.Address">
+		<field name="addressId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="street" type="String" />
+		<field name="city" type="String" />
+		<field name="country" type="String" />
+		<field name="town" type="String" />
+		<field name="note" type="String" />
+	</model>
+	<model name="cmr.fandenatech.ndjangui.model.BudgetPeriod">
+		<field name="budgetPeriodId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="name" type="String" />
+		<field name="shortDescription" type="String">
+			<hint-collection name="TEXTAREA" />
+			<hint-collection name="CLOB" />
+		</field>
+		<field name="startDate" type="Date" />
+		<field name="endDate" type="Date" />
+		<field name="status" type="int" />
+	</model>
+	<model name="cmr.fandenatech.ndjangui.model.Fund">
+		<field name="fundId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="budgetPeriodId" type="long" />
+		<field name="name" type="String" />
+		<field name="shortDescription" type="String">
+			<hint-collection name="TEXTAREA" />
+			<hint-collection name="CLOB" />
+		</field>
+		<field name="fundTypeId" type="long" />
+		<field name="fundType" type="String" />
+		<field name="status" type="int" />
+	</model>
+	<model name="cmr.fandenatech.ndjangui.model.FundType">
+		<field name="fundTypeId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="name" type="String" />
+		<field name="shortDescription" type="String">
+			<hint-collection name="TEXTAREA" />
+			<hint-collection name="CLOB" />
+		</field>
+		<field name="status" type="int" />
+	</model>
+	<model name="cmr.fandenatech.ndjangui.model.Member">
+		<field name="memberId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="name" type="String" />
+		<field name="surname" type="String" />
+		<field name="fullname" type="String" />
+		<field name="email" type="String" />
+		<field name="cardNumber" type="String" />
+		<field name="phoneNumber" type="String" />
+		<field name="rate" type="double" />
+		<field name="status" type="int" />
+	</model>
+	<model name="cmr.fandenatech.ndjangui.model.MemberFund">
+		<field name="memberFundId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="memberId" type="long" />
+		<field name="fundId" type="long" />
+		<field name="memberName" type="String" />
+		<field name="fundName" type="String" />
+	</model>
+	<model name="cmr.fandenatech.ndjangui.model.MemberSitting">
+		<field name="memberSittingId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="memberId" type="long" />
+		<field name="sittingId" type="long" />
+		<field name="memberName" type="String" />
+		<field name="sittingName" type="String" />
+	</model>
+	<model name="cmr.fandenatech.ndjangui.model.Operation">
+		<field name="operationId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="budgetPeriodId" type="long" />
+		<field name="name" type="String" />
+		<field name="shortDescription" type="String">
+			<hint-collection name="TEXTAREA" />
+			<hint-collection name="CLOB" />
+		</field>
+		<field name="operationTypeId" type="long" />
+		<field name="sittingId" type="long" />
+		<field name="status" type="int" />
+		<field name="amount" type="double" />
+		<field name="srcFundClassPK" type="long" />
+		<field name="srcFundClassName" type="String" />
+		<field name="destFundClassPK" type="long" />
+		<field name="destFundClassName" type="String" />
+	</model>
+	<model name="cmr.fandenatech.ndjangui.model.Operation_Fund">
+		<field name="operationFundId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="operationId" type="long" />
+		<field name="srcFundClassPK" type="long" />
+		<field name="srcFundClassName" type="String" />
+		<field name="destFundClassPK" type="long" />
+		<field name="destFundClassName" type="String" />
+	</model>
+	<model name="cmr.fandenatech.ndjangui.model.OperationType">
+		<field name="operationTypeId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="name" type="String" />
+		<field name="shortDescription" type="String">
+			<hint-collection name="TEXTAREA" />
+			<hint-collection name="CLOB" />
+		</field>
+		<field name="status" type="int" />
+	</model>
+	<model name="cmr.fandenatech.ndjangui.model.Sanction">
+		<field name="sanctionId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="memberId" type="long" />
+		<field name="budgetPeriodId" type="long" />
+		<field name="name" type="String" />
+		<field name="shortDescription" type="String">
+			<hint-collection name="TEXTAREA" />
+			<hint-collection name="CLOB" />
+		</field>
+		<field name="sanctionTypeId" type="long" />
+		<field name="sittingId" type="long" />
+		<field name="amount" type="double" />
+		<field name="status" type="int" />
+		<field name="srcFundClassPK" type="long" />
+		<field name="srcFundClassName" type="String" />
+		<field name="destFundClassPK" type="long" />
+		<field name="destFundClassName" type="String" />
+	</model>
+	<model name="cmr.fandenatech.ndjangui.model.SanctionType">
+		<field name="sanctionTypeId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="name" type="String" />
+		<field name="shortDescription" type="String">
+			<hint-collection name="TEXTAREA" />
+			<hint-collection name="CLOB" />
+		</field>
+		<field name="amount" type="double" />
+		<field name="status" type="int" />
+	</model>
+	<model name="cmr.fandenatech.ndjangui.model.Sitting">
+		<field name="sittingId" type="long" />
+		<field name="userId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="startDate" type="Date" />
+		<field name="startHour" type="int" />
+		<field name="startMin" type="int" />
+		<field name="endDate" type="Date" />
+		<field name="endHour" type="int" />
+		<field name="endMin" type="int" />
+		<field name="budgetPeriodId" type="long" />
+		<field name="name" type="String" />
+		<field name="dayPlan" type="String">
+			<hint-collection name="TEXTAREA" />
+			<hint-collection name="CLOB" />
+		</field>
+		<field name="notes" type="String" />
+		<field name="status" type="int" />
+	</model>
+</model-hints>

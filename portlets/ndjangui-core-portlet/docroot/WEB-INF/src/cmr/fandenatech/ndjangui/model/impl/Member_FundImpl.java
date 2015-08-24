@@ -1,0 +1,34 @@
+/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package cmr.fandenatech.ndjangui.model.impl;
+
+/**
+ * The extended model implementation for the Member_Fund service. Represents a row in the &quot;ndjangui_Member_Fund&quot; database table, with each column mapped to a property of this class.
+ *
+ * <p>
+ * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link cmr.fandenatech.ndjangui.model.Member_Fund} interface.
+ * </p>
+ *
+ * @author guyw
+ */
+public class Member_FundImpl extends Member_FundBaseImpl {
+	/*
+	 * NOTE FOR DEVELOPERS:
+	 *
+	 * Never reference this class directly. All methods that expect a member_ fund model instance should use the {@link cmr.fandenatech.ndjangui.model.Member_Fund} interface instead.
+	 */
+	public Member_FundImpl() {
+	}
+}

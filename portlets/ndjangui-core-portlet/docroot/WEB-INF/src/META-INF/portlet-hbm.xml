@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="cmr.fandenatech.ndjangui.model.Address" />
+	<import class="cmr.fandenatech.ndjangui.model.BudgetPeriod" />
+	<import class="cmr.fandenatech.ndjangui.model.Fund" />
+	<import class="cmr.fandenatech.ndjangui.model.FundType" />
+	<import class="cmr.fandenatech.ndjangui.model.Member" />
+	<import class="cmr.fandenatech.ndjangui.model.MemberFund" />
+	<import class="cmr.fandenatech.ndjangui.model.MemberSitting" />
+	<import class="cmr.fandenatech.ndjangui.model.Operation" />
+	<import class="cmr.fandenatech.ndjangui.model.Operation_Fund" />
+	<import class="cmr.fandenatech.ndjangui.model.OperationType" />
+	<import class="cmr.fandenatech.ndjangui.model.Sanction" />
+	<import class="cmr.fandenatech.ndjangui.model.SanctionType" />
+	<import class="cmr.fandenatech.ndjangui.model.Sitting" />
+	<class name="cmr.fandenatech.ndjangui.model.impl.AddressImpl" table="ndjangui_Address">
+		<cache usage="read-write" />
+		<id name="addressId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="street" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="city" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="country" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="town" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="cmr.fandenatech.ndjangui.model.impl.BudgetPeriodImpl" table="ndjangui_BudgetPeriod">
+		<cache usage="read-write" />
+		<id name="budgetPeriodId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="shortDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="startDate" type="org.hibernate.type.TimestampType" />
+		<property name="endDate" type="org.hibernate.type.TimestampType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="cmr.fandenatech.ndjangui.model.impl.FundImpl" table="ndjangui_Fund">
+		<cache usage="read-write" />
+		<id name="fundId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="budgetPeriodId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="shortDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fundTypeId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="fundType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="cmr.fandenatech.ndjangui.model.impl.FundTypeImpl" table="ndjangui_FundType">
+		<cache usage="read-write" />
+		<id name="fundTypeId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="shortDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="cmr.fandenatech.ndjangui.model.impl.MemberImpl" table="ndjangui_Member">
+		<cache usage="read-write" />
+		<id name="memberId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="surname" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fullname" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cardNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="phoneNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="rate" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="cmr.fandenatech.ndjangui.model.impl.MemberFundImpl" table="ndjangui_MemberFund">
+		<cache usage="read-write" />
+		<id name="memberFundId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="memberId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="fundId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="memberName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fundName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="cmr.fandenatech.ndjangui.model.impl.MemberSittingImpl" table="ndjangui_MemberSitting">
+		<cache usage="read-write" />
+		<id name="memberSittingId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="memberId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="sittingId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="memberName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sittingName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="cmr.fandenatech.ndjangui.model.impl.OperationImpl" table="ndjangui_Operation">
+		<cache usage="read-write" />
+		<id name="operationId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="budgetPeriodId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="shortDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="operationTypeId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="sittingId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="amount" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="srcFundClassPK" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="srcFundClassName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="destFundClassPK" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="destFundClassName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="cmr.fandenatech.ndjangui.model.impl.Operation_FundImpl" table="ndjangui_Operation_Fund">
+		<cache usage="read-write" />
+		<id name="operationFundId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="operationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="srcFundClassPK" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="srcFundClassName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="destFundClassPK" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="destFundClassName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="cmr.fandenatech.ndjangui.model.impl.OperationTypeImpl" table="ndjangui_OperationType">
+		<cache usage="read-write" />
+		<id name="operationTypeId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="shortDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="cmr.fandenatech.ndjangui.model.impl.SanctionImpl" table="ndjangui_Sanction">
+		<cache usage="read-write" />
+		<id name="sanctionId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="memberId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="budgetPeriodId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="shortDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sanctionTypeId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="sittingId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="amount" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="srcFundClassPK" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="srcFundClassName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="destFundClassPK" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="destFundClassName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="cmr.fandenatech.ndjangui.model.impl.SanctionTypeImpl" table="ndjangui_SanctionType">
+		<cache usage="read-write" />
+		<id name="sanctionTypeId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="shortDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="amount" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="cmr.fandenatech.ndjangui.model.impl.SittingImpl" table="ndjangui_Sitting">
+		<cache usage="read-write" />
+		<id name="sittingId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="startDate" type="org.hibernate.type.TimestampType" />
+		<property name="startHour" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="startMin" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="endDate" type="org.hibernate.type.TimestampType" />
+		<property name="endHour" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="endMin" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="budgetPeriodId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dayPlan" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="notes" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+</hibernate-mapping>

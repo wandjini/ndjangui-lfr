@@ -1,0 +1,46 @@
+<%@page import="cmr.fandenatech.ndjangui.service.MemberSittingLocalServiceUtil"%>
+<%@page import="cmr.fandenatech.ndjangui.service.SittingLocalServiceUtil"%>
+<liferay-ui:search-container delta="10"  iteratorURL="<%=portletURL %>" >
+
+
+	<liferay-ui:search-container-results 
+		results="<%=MemberSittingLocalServiceUtil.getMembersSittingByGroupId(scopeGroupId, sittingId, searchContainer.getStart(), searchContainer.getEnd())%>"
+		
+		total="<%=MemberSittingLocalServiceUtil.contMembersSittingByGroupId(scopeGroupId,sittingId) %>"
+	/>
+
+	<liferay-ui:search-container-row className="cmr.fandenatech.ndjangui.model.MemberSitting" modelVar="memberSitting">
+
+			<liferay-ui:search-container-column-text property="memberName" />
+			<liferay-ui:search-container-column-text property="sittingName" />
+			<liferay-ui:search-container-column-text name="actions">
+				<portlet:actionURL name="editSitting" var="removeSittingMemberURL">
+					<portlet:param name="<%=Constants.CMD %>"
+						value="<%=ActionKeys.REMOVE_SITTING_MEMBER %>" />
+					<portlet:param name="memberSittingId"
+						value="<%=String.valueOf(memberSitting.getMemberSittingId()) %>" />
+					<portlet:param name="sittingId" value="<%=String.valueOf(sittingId) %>" />
+					<portlet:param name="redirect" value="<%=createNewSittingURL %>" />
+				</portlet:actionURL>
+
+				<a onclick="javascript:<portlet:namespace/>deleteSittingMember('<%=removeSittingMemberURL %>')"><liferay-ui:message key="remove"/></a>
+				
+			</liferay-ui:search-container-column-text>
+
+
+	</liferay-ui:search-container-row>
+	<script>
+	
+		function <portlet:namespace/>deleteSittingMember(url){
+			
+			if(confirm(Liferay.Language.get('are-you-sure'))){
+				
+				window.location.href=url;
+			}
+		}
+	</script>
+	
+	
+
+	<liferay-ui:search-iterator />
+</liferay-ui:search-container>
