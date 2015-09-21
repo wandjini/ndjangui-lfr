@@ -39,6 +39,7 @@ public class ActionKeys extends com.liferay.portal.security.permission.ActionKey
 	public final static String OPEN_BUDGET_PERIOD = "OPEN_BUDGET_PERIOD";
 	public final static String CLOSE_BUDGET_PERIOD = "CLOSE_BUDGET_PERIOD";
 	public final static String DELETE_BUDGET_PERIOD = "DELETE_BUDGET_PERIOD";
+	public final static String ADD_CONTRIBUTION = "ADD_CONTRIBUTION";
 	
 
 }

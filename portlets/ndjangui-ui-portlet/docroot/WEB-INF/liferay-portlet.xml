@@ -31,7 +31,7 @@
 			/html/sitting/css/main.css
 		</header-portlet-css>
 		<footer-portlet-javascript>
-			/html/sitting/js/main.js
+			/html/js/main.js
 		</footer-portlet-javascript>
 		<css-class-wrapper>3-portlet</css-class-wrapper>
 	</portlet>
@@ -41,8 +41,11 @@
 		<header-portlet-css>
 			/html/currentsitting/css/main.css
 		</header-portlet-css>
+		<header-portlet-javascript>
+			/html/js/main.js
+		</header-portlet-javascript>
 		<footer-portlet-javascript>
-			/html/currentsitting/js/main.js
+			/html/currentsitting/js/app.js
 		</footer-portlet-javascript>
 		<css-class-wrapper>4-portlet</css-class-wrapper>
 	</portlet>

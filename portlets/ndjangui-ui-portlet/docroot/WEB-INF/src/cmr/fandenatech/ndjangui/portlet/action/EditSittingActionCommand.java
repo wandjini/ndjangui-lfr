@@ -127,8 +127,9 @@ public class EditSittingActionCommand implements ActionCommand {
 		ThemeDisplay themeDisplay = (ThemeDisplay) portletRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		
 		long sittingId = ParamUtil.getLong(portletRequest, "sittingId");
-		long memberId = ParamUtil.getLong(portletRequest, "memberId");
-		MemberSittingLocalServiceUtil.addMemberSitting(themeDisplay.getScopeGroupId(), themeDisplay.getUserId() , memberId, sittingId);
+		long[] memberIds = ParamUtil.getLongValues(portletRequest, "checked");
+		for(long memberId : memberIds)
+			MemberSittingLocalServiceUtil.addMemberSitting(themeDisplay.getScopeGroupId(), themeDisplay.getUserId() , memberId, sittingId);
 	}
 	private void removeSittingMember(PortletRequest portletRequest, PortletResponse portletResponse) 
 			throws PortalException, SystemException{
@@ -153,9 +154,9 @@ public class EditSittingActionCommand implements ActionCommand {
 	private void setSittingMemberRedirectPage(PortletRequest portletRequest, PortletResponse portletResponse){
 		ActionResponse actionResponse = (ActionResponse)portletResponse;
 		String sittingId = ParamUtil.getString(portletRequest, "sittingId");
-		actionResponse.setRenderParameter("jspPage", "/html/sitting/members_list.jsp");
+		actionResponse.setRenderParameter("jspPage", "/html/currentsitting/view.jsp");
 		actionResponse.setRenderParameter("sittingId", sittingId);
-
+		actionResponse.setRenderParameter("toolbarItem", "presences");
 		portletResponse = (PortletResponse) actionResponse;
 	
 	}

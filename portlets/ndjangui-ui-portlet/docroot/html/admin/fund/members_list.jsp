@@ -4,9 +4,11 @@
 <%@ include file="/html/sitting/init.jsp" %>
 <portlet:defineObjects />
 <%
-	long sittingId= ParamUtil.getLong(request, "sittingId",0);
+	long fundId= ParamUtil.getLong(request, "fundId",0);
 %>
 <liferay-ui:error  key="error-adding-member" message="error-adding-member"/>
+<liferay-ui:success  key="member-succesfully-added" message="member-succesfully-added"/>
+
 <liferay-ui:search-container delta="10"  iteratorURL="<%=portletURL %>" >
 
 
@@ -25,14 +27,14 @@
 			<liferay-ui:search-container-column-text  property="phoneNumber"  name="phone-number"/>
 			<liferay-ui:search-container-column-text  property="cardNumber" name="card-number"/>
 			<liferay-ui:search-container-column-text  name="actions">
-				<portlet:actionURL name="editSitting" var="addSittingMemberURL">
+				<portlet:actionURL name="editFund" var="addFundMemberURL">
 					<portlet:param name="<%=Constants.CMD %>" value="<%=ActionKeys.ADD_FUND_MEMBER %>"/>
 					<portlet:param name="memberId" value="<%=String.valueOf(member.getMemberId()) %>"/>
-					<portlet:param name="sittingId" value="<%=String.valueOf(sittingId) %>"/>
+					<portlet:param name="fundId" value="<%=String.valueOf(fundId) %>"/>
 					<portlet:param name="redirect" value="<%=themeDisplay.getURLCurrent()  %>"/>
 				</portlet:actionURL>
 				
-				<aui:button name="choose" href="<%=addSittingMemberURL %>" useDialog="<%=false %>" value="choose" > 
+				<aui:button name="choose" href="<%=addFundMemberURL %>" useDialog="<%=false %>" value="choose" > 
 				</aui:button>
 			</liferay-ui:search-container-column-text>
 			
@@ -52,7 +54,7 @@ AUI().ready(function(A){
 		alert('closing-popup');
 		A.one('.modal-focused').hide();
 		var url = Liferay.PortletURL.createURL('<%= createNewSittingURL%>');
-		url.setParameter("sittingId","<%= sittingId%>");
+		url.setParameter("fundId","<%= fundId%>");
 		window.location.href=url;
 	});
 });

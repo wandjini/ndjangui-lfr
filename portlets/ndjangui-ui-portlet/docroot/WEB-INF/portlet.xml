@@ -135,7 +135,7 @@
 		</supports>
 		<portlet-info>
 			<title>Ndjangui current sitting</title>
-			<short-title>4</short-title>
+			<short-title>current sitting</short-title>
 			<keywords></keywords>
 		</portlet-info>
 		<security-role-ref>

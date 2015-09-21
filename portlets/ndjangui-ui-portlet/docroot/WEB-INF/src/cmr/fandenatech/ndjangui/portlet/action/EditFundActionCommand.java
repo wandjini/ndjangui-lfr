@@ -4,6 +4,7 @@ import javax.portlet.ActionResponse;
 import javax.portlet.PortletException;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
+import javax.portlet.WindowStateException;
 
 import cmr.fandenatech.ndjangui.model.Fund;
 import cmr.fandenatech.ndjangui.service.FundServiceUtil;
@@ -12,6 +13,8 @@ import cmr.fandenatech.ndjangui.util.ActionKeys;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.portlet.LiferayWindowState;
+import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -117,13 +120,15 @@ public class EditFundActionCommand implements ActionCommand {
 		FundServiceUtil.deleteFund(themeDisplay.getUserId(), fundId);
 	}
 	private void addFundMember(PortletRequest portletRequest, PortletResponse portletResponse) 
-			throws PortalException, SystemException{
+			throws PortalException, SystemException, WindowStateException{
 		
 		ThemeDisplay themeDisplay = (ThemeDisplay) portletRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		
 		long fundId = ParamUtil.getLong(portletRequest, "fundId");
 		long memberId = ParamUtil.getLong(portletRequest, "memberId");
 		MemberFundServiceUtil.addMemberFund(themeDisplay.getScopeGroupId(), themeDisplay.getUserId() , memberId, fundId);
+		SessionMessages.add(portletRequest, "member-succesfully-added");
+		setFundMemberRedirectPage(portletRequest, portletResponse);
 	}
 	private void removeFundMember(PortletRequest portletRequest, PortletResponse portletResponse) 
 			throws PortalException, SystemException{
@@ -145,11 +150,12 @@ public class EditFundActionCommand implements ActionCommand {
 		portletResponse = (PortletResponse) actionResponse;
 
 	}
-	private void setFundMemberRedirectPage(PortletRequest portletRequest, PortletResponse portletResponse){
+	private void setFundMemberRedirectPage(PortletRequest portletRequest, PortletResponse portletResponse) throws WindowStateException{
 		String fundId = ParamUtil.getString(portletRequest, "fundId");
 		ActionResponse actionResponse = (ActionResponse)portletResponse;
 		actionResponse.setRenderParameter("jspPage", "/html/admin/fund/members_list.jsp");
 		actionResponse.setRenderParameter("fundId", fundId);
+		actionResponse.setWindowState(LiferayWindowState.POP_UP);
 		//actionResponse.setRenderParameters(portletRequest.getParameterMap());
 		portletResponse = (PortletResponse) actionResponse;
 		

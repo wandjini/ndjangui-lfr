@@ -210,4 +210,29 @@
 			</guest-unsupported>
 		</permissions>
 	</model-resource>			
+	<model-resource>
+		<model-name>cmr.fandenatech.ndjangui.model.Operation</model-name>
+		<portlet-ref>
+			<portlet-name>2</portlet-name>
+		</portlet-ref>
+		<permissions>
+			<supports>
+				<action-key>DELETE</action-key>
+				<action-key>UPDATE</action-key>
+				<action-key>VIEW</action-key>
+			</supports>
+			<site-member-defaults>
+				<action-key>VIEW</action-key>
+			</site-member-defaults>
+			<guest-defaults>
+				
+			</guest-defaults>
+			<guest-unsupported>
+				<action-key>VIEW</action-key>
+				<action-key>DELETE</action-key>
+				<action-key>UPDATE</action-key>
+			</guest-unsupported>
+		</permissions>
+	</model-resource>		
+	
 </resource-action-mapping>
